@@ -43,7 +43,7 @@ class PostsController < ApplicationController
 
 	private
 
-	dev post_params(*args)
+	def post_params(*args)
 		params.require(:post).permit(*args)
 	end
 
