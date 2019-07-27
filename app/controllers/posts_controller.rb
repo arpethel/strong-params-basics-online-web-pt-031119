@@ -11,20 +11,7 @@ class PostsController < ApplicationController
 		@post = Post.new
 	end
 
-	# def create
-	#   @post = Post.new(params["post"])
-	#   @post.save
-	#   redirect_to post_path(@post)
-	# end
-	#
-	# def update
-	#   @post = Post.find(params[:id])
-	#   @post.update(params["post"])
-	#   redirect_to post_path(@post)
-	# end
-
 	def create
-	  # @post = Post.new(params.require(:post).permit(:title, :description))
 		@post = Post.new(post_params(:title, :description))
 	  @post.save
 	  redirect_to post_path(@post)
@@ -32,7 +19,6 @@ class PostsController < ApplicationController
 
 	def update
 	  @post = Post.find(params[:id])
-	  # @post.update(params.require(:post).permit(:title))
 		@post.update(post_params(:title))
 	  redirect_to post_path(@post)
 	end
